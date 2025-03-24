@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors({
   origin:"https://todo-app-frontend-dnuekppdz-tarbi-pyakurels-projects.vercel.app", // Allow frontend
   methods:"GET,POST,PUT,DELETE",
-  allowHeaders:"Content-Type"
+  allowedHeaders:"Content-Type"
 }));
 
 //connect routes in server
