@@ -13,6 +13,9 @@ app.use(cors({
   allowedHeaders: ["Content-Type"],
 }));
 
+app.get("/", (req, res) => {
+  res.redirect("/todos");
+});
 
 //connect routes in server
 const todoRoutes = require("./routes/todoRoutes");
