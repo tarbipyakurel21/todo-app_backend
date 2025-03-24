@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
-const cors = require("cors");
+
 
 app.use(cors({
   origin: "https://todo-app-frontend-neon.vercel.app", // Allow frontend
