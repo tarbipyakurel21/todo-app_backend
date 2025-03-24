@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin:"https://todo-app-frontend-dnuekppdz-tarbi-pyakurels-projects.vercel.app", // Allow frontend
+  origin:"https://todo-app-frontend-neon.vercel.app", // Updated frontend URL
   methods:"GET,POST,PUT,DELETE",
   allowedHeaders:"Content-Type"
 }));
