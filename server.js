@@ -5,11 +5,14 @@ const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+const cors = require("cors");
+
 app.use(cors({
-  origin:"https://todo-app-frontend-neon.vercel.app", // Updated frontend URL
-  methods:"GET,POST,PUT,DELETE",
-  allowedHeaders:"Content-Type"
+  origin: "https://todo-app-frontend-neon.vercel.app", // Allow frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"],
 }));
+
 
 //connect routes in server
 const todoRoutes = require("./routes/todoRoutes");
