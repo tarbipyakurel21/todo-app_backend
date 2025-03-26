@@ -18,8 +18,14 @@ app.get("/", (req, res) => {
 });
 
 //connect routes in server
+const authRoutes=require("./routes/authRoutes");
+app.use("/auth",authRoutes); //Auth routes
+
+// todo routes
 const todoRoutes = require("./routes/todoRoutes");
 app.use("/todos", todoRoutes);
+
+
 
 //connect with database
 mongoose
