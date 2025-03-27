@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const Todo = require("../models/Todo");
+const authenticate=require("../middleware/authMiddleware")
 
-//Get all todos
-
-router.get("/", async (req, res) => {
+//Get all todos only for logged in-user
+router.get("/", authenticate, async (req, res) => {
     try {
-        const todos = await Todo.find();
+        const todos = await Todo.find({user:req.user.id});
         res.json(todos);
       } catch (err) {
         res.status(500).json({ error: err.message });
@@ -15,9 +15,9 @@ router.get("/", async (req, res) => {
 
 // Add a new todo
 
-router.post("/", async (req, res) => {
+router.post("/", authenticate, async (req, res) => {
     try {
-        const newTodo = new Todo(req.body);
+        const newTodo = new Todo({...req.body,user:req.user.id});
         await newTodo.save();
         res.status(201).json(newTodo);
       } catch (err) {
@@ -27,9 +27,9 @@ router.post("/", async (req, res) => {
 
 //Update a todo
 
-router.put("/:id", async (req, res) => {
+router.put("/:id",authenticate, async (req, res) => {
     try {
-        const updatedTodo = await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updatedTodo = await Todo.findOneAndUpdate({_id:req.params.id,user:req.user.id},req.body, { new: true });
         if (!updatedTodo) return res.status(404).json({ message: "Todo not found" });
         res.json(updatedTodo);
       } catch (err) {
@@ -39,9 +39,9 @@ router.put("/:id", async (req, res) => {
 
 //Delete a todo
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id",authenticate, async (req, res) => {
     try {
-        const deletedTodo = await Todo.findByIdAndDelete(req.params.id);
+        const deletedTodo = await Todo.findOneAndDelete({_id:req.params.id,user:req.user.id});
         if (!deletedTodo) return res.status(404).json({ message: "Todo not found" });
         res.json({ message: "Deleted successfully" });
       } catch (err) {
