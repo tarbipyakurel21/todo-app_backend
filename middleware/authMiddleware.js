@@ -10,7 +10,8 @@ const authenticate=(req,res,next)=>{
     try{
         // remove bearer prefix from the token
 
-        const tokenWithoutBearer=token.replace("Bearer","");
+        const tokenWithoutBearer=token.replace("Bearer","").trim()
+            ;
         const decoded=jwt.verify(tokenWithoutBearer,process.env.JWT_SECRET);
         req.user=decoded;
 
