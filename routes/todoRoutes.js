@@ -31,7 +31,10 @@ router.post("/", authenticate, async (req, res) => {
 //Update a todo
 
 router.put("/:id",authenticate, async (req, res) => {
-    try {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).json({ message: "Invalid Todo ID" });
+}  
+  try {
         const updatedTodo = await Todo.findOneAndUpdate({_id:req.params.id,user:req.user.id},req.body, { new: true });
         if (!updatedTodo) return res.status(404).json({ message: "Todo not found" });
         res.json(updatedTodo);
