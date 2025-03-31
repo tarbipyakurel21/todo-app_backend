@@ -43,7 +43,7 @@ router.put("/:id",authenticate, async (req, res) => {
       }
 });
 
-//Delete a todo
+//Delete a todo 
 
 router.delete("/:id",authenticate, async (req, res) => {
     try {

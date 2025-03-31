@@ -35,6 +35,7 @@ router.post(
       await user.save();
 
       res.json({ msg: "User registered successfully" });
+      
     } catch (err) {
       console.error(err);
       res.status(500).json({ msg: "Server error" });
