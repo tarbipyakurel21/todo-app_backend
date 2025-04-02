@@ -8,7 +8,7 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: "https://todo-app-frontend-xlr2.vercel.app", // Allow frontend
+  origin: "https://todo-app-frontend-s3ik.vercel.app", // Allow frontend
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type","Authorization"],
 }));
