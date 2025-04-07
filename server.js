@@ -1,11 +1,19 @@
 require("dotenv").config();
+require ("./config.passport");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const passport=require("passport");
 
 const app = express();
 app.use(express.json());
 
+// Adding session middleware
+//required by passport even when not using session
+
+app.use(session({secret:"secret",resave:false,saveUninitialized:true}));
+app.use(passport.initialize);
+app.use(passport.session());
 
 app.use(cors({
   origin: "https://todo-app-frontend-s3ik.vercel.app", // Allow frontend
