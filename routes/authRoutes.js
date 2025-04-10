@@ -9,27 +9,27 @@ const router = express.Router();
 const SECRET_KEY = process.env.JWT_SECRET || "supersecretkey";
 
 // initializing passport.js
-require("../config/passport");
+//require("../config/passport");
 
 //Route to initiate google login
-router.get("/google",passport.authenticate(
-  "google",{scope:["profile","email"]})
-);
+//router.get("/google",passport.authenticate(
+  //"google",{scope:["profile","email"]})
+//);
 
 //Google callback route
-router.get("/google/callback", passport.authenticate("google",{session:false}),
-(req,res)=>{
-const {token,user}=req.user;
+//router.get("/google/callback", passport.authenticate("google",{session:false}),
+//(req,res)=>{
+//const {token,user}=req.user;
 
-res.json({
-  message:"Google login successfull",
-  token,
-  user,
-});
+//res.json({
+  //message:"Google login successfull",
+  //token,
+  //user,
+//});
 
 
 
-});
+//});
 
 // 🔹 REGISTER USER (POST /register)
 router.post(
