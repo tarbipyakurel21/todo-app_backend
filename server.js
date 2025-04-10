@@ -17,7 +17,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(cors({
-  origin: "https://todo-app-frontend-s3ik.vercel.app", // Allow frontend
+  origin: "https://todo-app-frontend-gc8q.vercel.app", // Allow frontend
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type","Authorization"],
 }));
