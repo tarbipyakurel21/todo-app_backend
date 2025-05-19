@@ -1,7 +1,4 @@
-import os
 
-# Define the README content
-readme_content = """
 # Todo App Backend
 
 This is the backend for a simple todo application. It provides an API for managing todos, allowing you to create, read, update, and delete them.
@@ -70,8 +67,3 @@ The backend is deployed on Vercel.  Any push to the main branch will automatical
 
 """
 
-# Create the README.md file
-with open("README.md", "w") as f:
-    f.write(readme_content)
-
-print("README.md file created successfully.")
