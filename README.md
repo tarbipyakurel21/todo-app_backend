@@ -7,7 +7,7 @@ This is the backend for a simple todo application. It provides an API for managi
 
 * **CRUD operations:** Create, read, update, and delete todos.
 * **RESTful API:** Uses a RESTful architecture for communication.
-* **Render Deployment:** The backend is deployed on Render.
+* **Render Deployment:** The backend is deployed on Render.https://todo-app-backend-2c33.onrender.com/
 
 ## Technologies Used
 
